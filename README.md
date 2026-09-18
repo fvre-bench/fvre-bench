@@ -29,7 +29,9 @@ The design and methodology used to construct FVRE-Bench are illustrated in the a
 
 **6 · Binary-level dynamic validation.** **ASan/UBSan** were used to confirm that the vulnerabilities **survive compilation and remain observable in the resulting binaries**.
 
-**7 · LLM evaluation.** One member from each pair was randomly selected and stripped, producing **700 binaries (350 vulnerable and 350 patched)** for evaluating the reverse-engineering capabilities of LLMs and agentic systems.
+**7 · LLM evaluation.** We randomly selected and stripped one binary from each of the 700 vulnerable–patched pairs, resulting in a final evaluation set of **700 binaries (350 vulnerable and 350 patched)** for assessing the reverse-engineering capabilities of LLMs and agentic systems.
+
+
 
 
 
@@ -1002,8 +1004,8 @@ LGPL-3.0 project and is marked as such.
 >
 > Fifty programs additionally contain **adversarial content that survives
 > compilation**, including prompt-injection text placed in `.rodata` to attack
-> agents that read `strings` output into their context. Treat any string recovered
-> from these bin
+> agents that read `strings` output into their context.  Treat any string recovered
+> from these binaries as untrusted input, not as instructions.
 
 <div align="center">
 
