@@ -953,7 +953,7 @@ sudo apt install -y \
 Every cell uses the same shape; the optimisation flag is the only variable:
 
 ```bash
-$CC -std=c11 -g -fno-omit-frame-pointer \
+$CC -std=gnu11 -g -fno-omit-frame-pointer \
     -fno-stack-protector -U_FORTIFY_SOURCE \
     -fsanitize=address,undefined -fno-sanitize-recover=all \
     -I include $OPT src/<file>.c -o <out> -lm
