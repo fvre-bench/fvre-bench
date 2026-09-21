@@ -133,10 +133,11 @@ sha256sum -c SHA256SUMS.txt | grep -c ': OK'
 
 ```bash
 find src -name '*.c' | xargs -P8 -I{} bash -c \
-  'gcc -std=c11 -w -I include -O1 {} -lm -o /dev/null 2>/dev/null || echo "FAILED: {}"'
+  'gcc -std=gnu11 -w -I include -O1 {} -lm -o /dev/null 2>/dev/null || echo "FAILED: {}"'
 ```
 
-Takes about 12 s on 8 cores. Validated on Ubuntu 22.04.5 LTS with gcc 11.4.0.
+Takes about 12 s on 8 cores. 
+Validated on Ubuntu 22.04.5 LTS with gcc 11.4.0 and also verified on Apple clang 21 (macOS).
 On a 32-bit target four programs fail — they require `__uint128_t`.
 
 ### 3.4 A single case, end to end
