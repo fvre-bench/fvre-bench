@@ -45,6 +45,14 @@ def label(item):
     v = item.get("is_vulnerable")
     if isinstance(v, bool):
         return v
+    if isinstance(v, (int, float)) and v in (0, 1):
+        return bool(v)
+    if isinstance(v, str):
+        t = v.strip().lower()
+        if t in {"true", "yes", "1"}:
+            return True
+        if t in {"false", "no", "0"}:
+            return False
     c = str(item.get("classification", "")).strip().upper()
     if c in {"VULNERABLE", "VULN", "TRUE"}:
         return True

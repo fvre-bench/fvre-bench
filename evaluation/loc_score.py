@@ -38,7 +38,14 @@ def rebase(a,g):
     ts=int(g['text_start'],16); te=ts+int(g['text_size'],16)
     return a-b if not (ts<=a<te) and ts<=a-b<te else a
 def lab(p):
-    v=p.get('is_vulnerable'); return v if isinstance(v,bool) else None
+    v=p.get('is_vulnerable')
+    if isinstance(v,bool): return v
+    if isinstance(v,(int,float)) and v in (0,1): return bool(v)
+    if isinstance(v,str):
+        t=v.strip().lower()
+        if t in ('true','yes','1'): return True
+        if t in ('false','no','0'): return False
+    return None
 MODELS=[('Opus 5 (PyGhidra/QEMU)','Opus5-Linux-high-effort-'),('GPT-5.6 Sol (Daybreak Blue), ultra','gpt-daybreak-blue-latest ultra'),('DeepSeek-V4.1 Flash','deepseek-v4.1-flash_max'),('Kimi K3','kimi-k3-devshell'),('Opus 4.8','OPUS-4.8-macos_high'),('Opus 5 static (detectors)','OPUS5-macos-high_reasoning'),('Opus 5 static (radare2)','OPUS-5-macos_high'),
  ('GPT-5.6 Sol, xhigh','gpt-5.6-sol-xhigh-KALI'),('GPT-5.4-mini','gpt-5.4-mini xhigh'),
  ('GPT-5.6 Sol (Daybreak Blue), xhigh','gpt-daybreak-blue-xhigh-R2'),('GPT-5.6 Sol (Daybreak Blue), high','gpt-daybreak-blue-latest-high_KALI'),
