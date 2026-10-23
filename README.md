@@ -97,8 +97,9 @@ provides the exact binary set used for the LLM evaluation reported in
 
 Everything needed to re-derive the numbers in [Results](#6-results):
 
-* **`predictions/`** — the 13 scored prediction files, one run per
-  configuration, byte-identical to the files that were scored;
+* **`predictions/`** — 14 prediction files: one run for each of the 13
+  configurations plus a repeated DeepSeek-V4.1 Flash run
+  (`deepseek-v4.1-flash_repeat.json`), byte-identical to the files that were scored;
 * **`answer-key.json`** — the same key as in the binaries archive;
 * **`score.py`** — detection, MCC and CWE scoring; writes `results/`;
 * **`protocol/FVRE-bench-700-task.md`** — the task prompt: deliverable, output
@@ -117,7 +118,7 @@ Everything needed to re-derive the numbers in [Results](#6-results):
 
 ```bash
 cd evaluation
-python3 score.py        # all 13 runs -> results/*.result.json
+python3 score.py        # all 14 runs -> results/*.result.json
 python3 loc_score.py    # localization table
 ```
 
@@ -125,7 +126,8 @@ python3 loc_score.py    # localization table
 |--:|---|
 | 1 | `Opus5-Linux-high-effort-.json` |
 | 2 | `kimi-k3-devshell.json` |
-| 3 | `deepseek-v4.1-flash_max.json` |
+| 3, run 1 | `deepseek-v4.1-flash_max.json` |
+| 3, run 2 | `deepseek-v4.1-flash_repeat.json` |
 | 4 | `gpt-daybreak-blue-latest ultra.json` |
 | 5 | `OPUS-4.8-macos_high.json` |
 | 6 | `OPUS5-macos-high_reasoning.json` |
@@ -302,14 +304,15 @@ pair under a new `generation_seed`.
 
 <div align="center"><img src="images/llm_leaderboard.png" width="900"/></div>
 
-Thirteen agentic configurations, **one run each**. All cover all 700 challenges.
+Thirteen agentic configurations, one run each, plus a repeated DeepSeek-V4.1 Flash run. All cover all 700 challenges.
 Ordered by accuracy, as in the paper's Table IV.
 
 | # | Model | Effort | Harness | Exec | TP | TN | FP | FN | Acc. % | Rec. | Spec. | **MCC** | *Any* | *Exact* | Est. cost $ |
 |--:|---|---|---|:-:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | 1 | **Opus 5** | high | PyGhidra + QEMU, multi-agent (Claude Code) | ✅ | 263 | 348 | 2 | 87 | **87.3** | 75.1 | 99.4 | **0.769** | 74.6 | 53.4 | 527.7 |
+| 3 | DeepSeek-V4.1 Flash, run 2 (open weights) | max | same configuration as run 1 | ✅ | 218 | 348 | 2 | 132 | 80.9 | 62.3 | 99.4 | **0.665** | 58.9 | 38.3 | 9.2 |
 | 2 | Kimi K3 (open weights) | high | Ghidra + radare2/rizin + QEMU (opencode) | ✅ | 208 | 346 | 4 | 142 | 79.1 | 59.4 | 98.9 | **0.634** | 56.6 | 41.1 | 158.3 |
-| 3 | DeepSeek-V4.1 Flash (open weights) | max | Ghidra 12.1.2 + radare2 + QEMU (opencode) | ✅ | 199 | 349 | 1 | 151 | 78.3 | 56.9 | 99.7 | **0.626** | 55.7 | 41.4 | 9.2 |
+| 3 | DeepSeek-V4.1 Flash, run 1 (open weights) | max | Ghidra 12.1.2 + radare2 + QEMU (opencode) | ✅ | 199 | 349 | 1 | 151 | 78.3 | 56.9 | 99.7 | **0.626** | 55.7 | 41.4 | 9.2 |
 | 4 | GPT-5.6 Sol (Daybreak Blue) | ultra | Ghidra + radare2 + QEMU (codex) | ✅ | 160 | 344 | 6 | 190 | 72.0 | 45.7 | 98.3 | **0.517** | 42.9 | 30.0 | 211.1 |
 | 5 | Opus 4.8 | high | Ghidra 12.1.2 + radare2, static | — | 122 | 343 | 7 | 228 | 66.4 | 34.9 | 98.0 | **0.424** | 32.0 | 21.7 | 527.7 |
 | 6 | Opus 5 | high | Ghidra 12.1.3 + detectors, static | — | 101 | 334 | 16 | 249 | 62.1 | 28.9 | 95.4 | **0.325** | 24.9 | 16.9 | 527.7 |
@@ -542,15 +545,16 @@ binaries per target, and MIPS32 big-endian is the *best* target.
 
 ### Caveats
 
-Each configuration ran **once**. A full 700-binary agentic run costs up to an
-estimated $528 (Kimi K3: $158.32 measured for 342M tokens), so instead of
-identical repeats, closely related configurations serve as a stability check:
-their accuracies differ by 0.2–4.7 points (2.0 for the two static Opus 5 runs
-once the Csmith track is excluded), although 14–22 % of individual labels
-differ. Sampling parameters were not retained. Opus 4.8 beats Opus 5 at a fixed
-static harness, but the effect depends on which of the two same-harness Opus 5
-runs you pair it with: **113–50, *p* = 8.9 × 10⁻⁷** against run 9, **84–54,
-*p* = 0.013** against the stronger run 6. A static analyser is not a comparable
+A full 700-binary agentic run costs up to an estimated $528 (Kimi K3: $158.32
+measured for 342M tokens; about $3,300 for one pass over all 13 configurations),
+so only the cheapest strong configuration was repeated. The repeated
+DeepSeek-V4.1 Flash run reaches 80.9 % accuracy (MCC 0.665) against the reported
+78.3 % (0.626), with 93.4 % label agreement: a 2.6-point run-to-run variation,
+small next to the leader's 9-point lead and the 150–4 execution effect. The
+other configurations ran once. Closely related configurations differ by 0.2–4.7
+points, although 14–22 % of individual labels differ. The two static Opus 5 runs
+differ from each other by 79–46, so Opus 4.8's wins over them (113–50 and
+84–54) are within configuration variation, while 150–4 is not. A static analyser is not a comparable
 baseline: agents receive stripped binaries, and decompiler pseudo-C lacks the
 types, names and compilability that source analysers rely on, so the crash-only
 baseline above is the mechanical reference instead.
