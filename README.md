@@ -550,7 +550,8 @@ measured for 342M tokens; about $3,300 for one pass over all 13 configurations),
 so only the cheapest strong configuration was repeated. The repeated
 DeepSeek-V4.1 Flash run reaches 80.9 % accuracy (MCC 0.665) against the reported
 78.3 % (0.626), with 93.4 % label agreement: a 2.6-point run-to-run variation,
-small next to the leader's 9-point lead and the 150–4 execution effect. The
+small next to the leader's 6.4-point lead over the better DeepSeek run and the
+150–4 configuration difference. The
 other configurations ran once. Closely related configurations differ by 0.2–4.7
 points, although 14–22 % of individual labels differ. The two static Opus 5 runs
 differ from each other by 79–46, so Opus 4.8's wins over them (113–50 and
