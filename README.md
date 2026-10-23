@@ -264,21 +264,62 @@ returns one record per challenge:
 answering YES. `cwe_subcategories`, `address`, `confidence` and `rationale` are
 optional — `rationale` is not scored, but it is what makes a run auditable.
 
-### Running an agent
+### Reproducing an agent run
 
-Everything an agent needs is in the release:
+**What the agent receives, and nothing else:**
 
-1. Unzip `FVRE-bench-700-binaries.zip` and give the agent **only `bin/`**. Keep
-   `answer-key.json` off the analysis machine.
-2. Give it the task prompt `evaluation/protocol/FVRE-bench-700-task.md`, unchanged.
-   Every configuration in the paper received this same prompt.
-3. Provide the tools you want to evaluate. The paper's configurations used Ghidra
-   (PyGhidra) for decompilation and qemu-user for execution, with the model,
-   harness and tool versions listed in the leaderboard. Any agent harness works.
-4. Collect the agent's JSON output (format below) and score it with
-   `python3 evaluation/score.py <your-predictions>.json`.
+1. the 700 stripped binaries in `bin/`;
+2. the task prompt `evaluation/protocol/FVRE-bench-700-task.md`, unchanged and identical
+   for every model;
+3. the analysis tools of its configuration (Ghidra/PyGhidra, qemu-user and so on).
 
-Helper scripts are not shipped because the agents write their own during the run.
+**No scripts, source code, answer key, hints or access to this repository were
+given to any agent.** The answer key was never stored on the analysis machines.
+Every helper script in the runs was written by the agent itself during the run.
+
+**Step 1: get the binaries.** Either unzip them:
+
+```bash
+mkdir challenge && unzip -q FVRE-bench-700-binaries.zip -d challenge
+```
+
+or rebuild them from `src/`. Each row of `answer-key.json` gives `source_filename`,
+`target`, `compiler` and `opt_level`. A challenge binary is a plain, stripped,
+uninstrumented build:
+
+```bash
+$CC -std=gnu11 -DNDEBUG -fomit-frame-pointer -fno-ident -w $OPT \
+    -I include src/<source_filename> -o <challenge_id> -lm
+strip <challenge_id>
+```
+
+with `$OPT` = `-O0`, `-O1`, `-O2`, `-O3`, or `-O3 -flto` for `LTO`, and `$CC` as in
+the table in [Re-run the cross-architecture matrix](#re-run-the-cross-architecture-matrix)
+(clang for `x86_64`, the cross GCC for the other Linux targets, Apple clang for
+`arm64-macos`). `evaluation/build/bench_build.sh` does exactly this, including the
+step-down rule (ship the highest level at which the twins' stripped `.text` still
+differ). Byte-identical binaries need the same compiler versions. The `mips64le`
+binaries cannot be rebuilt byte-identically (see below).
+
+**Step 2: set up the tools.** Install the tools of the configuration you reproduce,
+at the versions in the leaderboard. The leading configuration used Claude Code
+(Opus 5, high effort) with Ghidra 12.1.2 via PyGhidra 3.1.0 (JDK 21), qemu-user 11.1
+with cross-architecture sysroots, and `readelf`, `objdump`, `strings`, `file`.
+
+**Step 3: run the agent.** Give it `bin/` and the task prompt in its harness (Claude
+Code, opencode or codex, at the version in the leaderboard), with the model and
+reasoning effort of the configuration. Keep `answer-key.json` and this repository off
+the analysis machine.
+
+**Step 4: score.** The agent returns one JSON record per binary (format below):
+
+```bash
+python3 evaluation/score.py <your-predictions>.json
+```
+
+Re-runs differ slightly because LLM sampling is not deterministic. Two runs of the
+DeepSeek-V4.1 Flash configuration differ by 2.6 accuracy points with 93.4 % label
+agreement.
 
 ### Scoring rules
 
@@ -368,8 +409,11 @@ For anyone reproducing the top row, this is exactly what it was:
 | **Dynamic** | qemu-user 11.1 (`qemu-arm`, `qemu-mips`, `qemu-ppc`, `qemu-riscv64`, …) |
 | **Static** | `readelf`, `objdump`, `strings`, `file` |
 | **Deliberately not used** | angr, radare2, MCP servers |
+| **Scripts supplied by the authors** | **none** — only the task prompt and the pinned tools |
 
-The pipeline was ten stages, seven of them scripted and deterministic: inventory
+The authors supplied no scripts. Claude Code planned this workflow itself from the
+task prompt and wrote every helper script during the run. It had ten stages, seven
+of them scripted and deterministic: inventory
 → 700 Ghidra headless decompilations → **sanitise** (strip model-directed text
 planted in the binaries) → qemu-user probes → round-robin chunking into 70
 chunks of 10 so no chunk is single-architecture → **two independent analysis
