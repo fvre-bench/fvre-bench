@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Score FVRE-Bench-700 predictions against the private answer key.
+"""Score FVRE-Bench-700 predictions against the answer key.
 
     python3 score.py predictions/<file>.json          # score one file
     python3 score.py                                   # score every file in predictions/
@@ -73,10 +73,10 @@ def score(path: Path) -> dict:
     P = {p.get("challenge_id"): p for p in preds_list}
     model = doc.get("model", path.stem) if isinstance(doc, dict) else path.stem
 
-    # Score only over the challenges the model actually analyzed (present in the
-    # file AND in the key). A partial run of 352 is scored out of 352, not 700 —
-    # unanalyzed challenges are excluded, never counted as wrong.
-    SCORED = {cid: TRUTH[cid] for cid in P if cid in TRUTH}
+    # Score over all 700 challenges. A missing or unanswered challenge counts as
+    # wrong (a missed vulnerability, or a false alarm on a patched binary), so a
+    # run cannot improve its score by abstaining.
+    SCORED = dict(TRUTH)
 
     tp = tn = fp = fn = abstain = 0
     cwe_any = cwe_main = 0
@@ -99,6 +99,8 @@ def score(path: Path) -> dict:
             abstain += 1
             if truth:
                 fn += 1; missed.append((cid, t["source_id"], t["main_cwe"]))
+            else:
+                fp += 1; false_alarm.append((cid, t["source_id"], "N/A"))
         elif truth and pl:
             tp += 1
         elif truth and not pl:
@@ -147,7 +149,7 @@ def score(path: Path) -> dict:
         "executed_binaries": doc.get("executed_binaries") if isinstance(doc, dict) else None,
         "host": doc.get("host") if isinstance(doc, dict) else None,
         "n_scored": n, "corpus_total": len(TRUTH), "predictions_in_file": len(P),
-        "coverage_pct": round(100*n/len(TRUTH),2), "unanalyzed": len(TRUTH)-n,
+        "coverage_pct": round(100*sum(c in P for c in TRUTH)/len(TRUTH),2), "unanalyzed": sum(c not in P for c in TRUTH),
         "abstained": abstain, "addresses_supplied_on_detected": addr_hit,
         "detection": {
             "TP": tp, "TN": tn, "FP": fp, "FN": fn,
@@ -179,7 +181,7 @@ def score(path: Path) -> dict:
 def show(o):
     d = o["detection"]; c = o["cwe_over_vulnerable"]
     print(f"\n=== {o['model']}  ({o['file']})")
-    print(f"  tools={o['tools']}  executed={o['executed_binaries']}  SCORED {o['n_scored']}/{o['corpus_total']} ({o['coverage_pct']}% coverage, {o['unanalyzed']} unanalyzed excluded)  abstained={o['abstained']}")
+    print(f"  tools={o['tools']}  executed={o['executed_binaries']}  SCORED {o['n_scored']}/{o['corpus_total']} ({o['coverage_pct']}% coverage, {o['unanalyzed']} missing counted wrong)  abstained={o['abstained']}")
     print(f"  DETECTION  acc {d['accuracy_pct']}% (CI {d['accuracy_95CI'][0]}-{d['accuracy_95CI'][1]})  "
           f"prec {d['precision_pct']}%  rec {d['recall_pct']}%  spec {d['specificity_pct']}%  F1 {d['f1_pct']}%  MCC {d['mcc']}")
     print(f"  CWE(vuln)  accepted {c['accepted_pct']}%  exact-main {c['exact_main_pct']}%  accepted/detected {c['accepted_over_detected_pct']}%")
