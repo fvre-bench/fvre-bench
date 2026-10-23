@@ -617,8 +617,8 @@ The deepest proof in the corpus, `FVRE-581` at *k* = 377, closes in **33.2 s**.
 The slowest, `FVRE-414` at *k* = 161, takes **3,510 s**.
 
 **Static complexity does not predict verification cost.** Pooled over all 1,400
-timings, `log₁₀(t) = 0.665 + 2.10 × 10⁻⁴ · CC` with **R² = 0.0002** — cyclomatic
-complexity explains **0.02 %** of the variance, and programs at equal complexity
+timings, `log₁₀(t) = 0.655 + 8.85 × 10⁻⁵ · CC` with **R² = 0.0027** — cyclomatic
+complexity explains **0.27 %** of the variance, and programs at equal complexity
 span three orders of magnitude. If you need to predict verification cost, measure
 it; do not estimate it from the source.
 
@@ -871,7 +871,7 @@ Measured with [`lizard`](https://github.com/terryyin/lizard) on the **released**
 | Cyclomatic complexity / program | 8 | 58 | 179.3 | 359 | 4,100 | 250,976 |
 | Cyclomatic complexity / function | 1 | 2 | 8.8 | 12 | 361 | — |
 | Largest function per program | 3 | 10 | 27.3 | 64 | 361 | — |
-| Max brace-nesting depth | 1 | 3 | 3.4 | 5 | 9 | — |
+| Max nesting depth | 1 | 3 | 3.4 | 5 | 11 | — |
 
 ```bash
 pip install lizard
