@@ -110,7 +110,10 @@ Everything needed to re-derive the numbers in [Results](#6-results):
 * **`compile-matrix/<target>@<opt>.tsv`** — all 70,000 compile-and-run member
   records (700 pairs × 2 members × 10 targets × 5 optimization levels). Columns:
   target, opt, case, role, cwe, detector, compile_rc, compile_s, run_rc, run_s,
-  timed_out, triggered, verdict, sanitizer marker.
+  timed_out, triggered, verdict, sanitizer marker. A pair-cell is valid when
+  both members compile, the vulnerable member triggers and the patched member
+  does not (34,715 of 35,000). `verdict` is the run-time label: `NONZERO_EXIT`
+  marks 281 patched members that are sanitizer-clean but exit non-zero.
 
 ```bash
 cd evaluation
