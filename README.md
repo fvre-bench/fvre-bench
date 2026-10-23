@@ -93,24 +93,20 @@ simply eliminates the need to configure the cross-compilation environment and
 provides the exact binary set used for the LLM evaluation reported in
 [Results](#6-results).
 
-### 3.3 `evaluation/` — Predictions, Scorer and Protocol
+### 3.3 `evaluation/` — Predictions, Scorer and Task Prompt
 
-Everything needed to re-derive every number in [Results](#6-results):
+Everything needed to re-derive the leaderboard in [Results](#6-results):
 
 * **`predictions/`** — the 13 scored prediction files, one run per
   configuration, byte-identical to the files that were scored;
 * **`answer-key.json`** — the same key as in the binaries archive;
 * **`score.py`** — detection, MCC and CWE scoring; writes `results/`;
-* **`loc_score.py`** + **`loc_all_v2.jsonl`** — localization against the 266
-  DWARF-recovered sink addresses;
-* **`BASELINE-crash-only.json`** — the crash-only execution baseline;
-* **`protocol/`** — the task prompt given to every system, and the leader's
-  complete workflow, prompts and scripts.
+* **`protocol/FVRE-bench-700-task.md`** — the task prompt: deliverable, output
+  schema and rules for the 700 binaries.
 
 ```bash
 cd evaluation
 python3 score.py        # all 13 runs -> results/*.result.json
-python3 loc_score.py    # localization table
 ```
 
 | Results row | Prediction file |
@@ -469,7 +465,7 @@ Its per-CWE recall is the cleanest definition of "silent":
 | CWE-121 stack overflow | 7/18 — 39 % | CWE-119 buffer ops | 0/10 — **0 %** |
 
 Every point a model scores on the right-hand column is reasoning that execution
-alone cannot supply. Raw data: `evaluation/BASELINE-crash-only.json`.
+alone cannot supply.
 
 ### Localization: naming is not pointing
 
