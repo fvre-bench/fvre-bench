@@ -1117,7 +1117,9 @@ source → proof → sanitizer report is verifiable without trusting the bundle.
 ### Re-verify all 1,400 programs
 
 ~**19.5 h** on 64 vCPUs. Budget **≥ 4 GB per concurrent job** — ESBMC formula size
-grows steeply with *k*.
+grows steeply with *k*. Install **ESBMC 8.4.0** (https://github.com/esbmc/esbmc/releases)
+so that `esbmc` is on your `PATH`. The commands below assume Linux (GNU `time` and
+`xargs`). On macOS, install GNU coreutils/findutils or run them in a Linux container.
 
 ```bash
 cd dataset                      # wherever you unpacked FVRE-bench.zip
@@ -1131,7 +1133,7 @@ find src -name '*.c' | sort | xargs -P 8 -I{} bash -c '
   { echo "===== ESBMC ====="
     echo "command: esbmc $f -I include '"$FLAGS"'"
     /usr/bin/time -f "wall_time_seconds: %e" \
-      ../bin/esbmc "$f" -I include '"$FLAGS"' 2>&1
+      esbmc "$f" -I include '"$FLAGS"' 2>&1
   } > "out/$n.esbmc.txt"'
 ```
 
