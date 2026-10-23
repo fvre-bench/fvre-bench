@@ -29,9 +29,7 @@ The design and methodology used to construct FVRE-Bench are illustrated in the a
 
 **6 · Binary-level dynamic validation.** **ASan/UBSan** were used to confirm that the vulnerabilities **survive compilation and remain observable in the resulting binaries**.
 
-**7 · LLM evaluation.** We randomly selected and stripped one binary from each of the 700 vulnerable–patched pairs, resulting in a final evaluation set of **700 binaries (350 vulnerable and 350 patched)** for assessing the reverse-engineering capabilities of LLMs and agentic systems.
-
-
+**7 · LLM evaluation.** One member from each pair was randomly selected and stripped, producing **700 binaries (350 vulnerable and 350 patched)** for evaluating the reverse-engineering capabilities of LLMs and agentic systems.
 
 
 
@@ -95,7 +93,43 @@ simply eliminates the need to configure the cross-compilation environment and
 provides the exact binary set used for the LLM evaluation reported in
 [Results](#6-results).
 
-### 3.3 Download and set up
+### 3.3 `evaluation/` — Predictions, Scorer and Protocol
+
+Everything needed to re-derive every number in [Results](#6-results):
+
+* **`predictions/`** — the 13 scored prediction files, one run per
+  configuration, byte-identical to the files that were scored;
+* **`answer-key.json`** — the same key as in the binaries archive;
+* **`score.py`** — detection, MCC and CWE scoring; writes `results/`;
+* **`loc_score.py`** + **`loc_all_v2.jsonl`** — localization against the 266
+  DWARF-recovered sink addresses;
+* **`BASELINE-crash-only.json`** — the crash-only execution baseline;
+* **`protocol/`** — the task prompt given to every system, and the leader's
+  complete workflow, prompts and scripts.
+
+```bash
+cd evaluation
+python3 score.py        # all 13 runs -> results/*.result.json
+python3 loc_score.py    # localization table
+```
+
+| Results row | Prediction file |
+|--:|---|
+| 1 | `Opus5-Linux-high-effort-.json` |
+| 2 | `kimi-k3-devshell.json` |
+| 3 | `deepseek-v4.1-flash_max.json` |
+| 4 | `gpt-daybreak-blue-latest ultra.json` |
+| 5 | `OPUS-4.8-macos_high.json` |
+| 6 | `OPUS5-macos-high_reasoning.json` |
+| 7 | `gpt-daybreak-blue-xhigh-R2.json` |
+| 8 | `gpt-5.6-sol-xhigh-KALI.json` |
+| 9 | `OPUS-5-macos_high.json` |
+| 10 | `gpt-5.4-mini xhigh.json` |
+| 11 | `gpt-daybreak-blue-latest-high_KALI.json` |
+| 12 | `GPT5.6-macos_high_no_execution.json` |
+| 13 | `gpt-5.3-codex-spark-xhigh-kali.json` |
+
+### 3.4 Download and set up
 
 **1. Clone the repository**
 
@@ -136,11 +170,22 @@ find src -name '*.c' | xargs -P8 -I{} bash -c \
   'gcc -std=gnu11 -w -I include -O1 {} -lm -o /dev/null 2>/dev/null || echo "FAILED: {}"'
 ```
 
-Takes about 12 s on 8 cores. 
-Validated on Ubuntu 22.04.5 LTS with gcc 11.4.0 and also verified on Apple clang 21 (macOS).
+> **Use `-std=gnu11`, not `-std=c11`.** `FVRE-511` calls `srand48`, `lrand48`,
+> `srandom` and `random`. These are POSIX, not ISO C, so strict `-std=c11` hides
+> them behind glibc's feature-test macros. GCC&nbsp;&le;&nbsp;13 only warns (and
+> `-w` silences it), but **GCC&nbsp;&ge;&nbsp;14 makes an implicit declaration a
+> hard error**, which `-w` cannot suppress — so `-std=c11` fails there on that one
+> pair. Apple clang exposes these regardless of `-std`, which is why macOS never
+> saw it. `-D_DEFAULT_SOURCE` or `-D_XOPEN_SOURCE=700` work too; `-std=gnu11` is
+> the smallest change. Verified across all 1,400 sources: 0 failures on Apple
+> clang&nbsp;21, GCC&nbsp;11.4, GCC&nbsp;14.4 and GCC&nbsp;15.3.
+
+
+Takes about 12 s on 8 cores. Verified on Apple clang 21 (macOS), and on
+gcc 11.4.0, 14.4.0 and 15.3.0 (Linux).
 On a 32-bit target four programs fail — they require `__uint128_t`.
 
-### 3.4 A single case, end to end
+### 3.5 A single case, end to end
 
 ```bash
 jq -c '.cases[] | select(.id=="FVRE-001")' ground_truth_label.json
@@ -249,37 +294,131 @@ pair under a new `generation_seed`.
 
 <div align="center"><img src="images/llm_leaderboard.png" width="900"/></div>
 
-Eleven agentic configurations, seven underlying models, **one run each**,
-July–August 2026. All cover all 700 challenges.
+Thirteen agentic configurations, **one run each**. All cover all 700 challenges.
+Ordered by accuracy, as in the paper's Table IV.
 
-| # | Underlying LLM | Harness | Exec | TP | TN | FP | FN | Acc. % | Rec. | Spec. | **MCC** | *Any* | *Exact* |
-|--:|---|---|:-:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| 1 | **Opus 5** | PyGhidra + QEMU, multi-agent | ✅ | 263 | 348 | 2 | 87 | **87.3** | 75.1 | 99.4 | **0.769** | 74.6 | 53.4 |
-| 2 | GPT-5 Codex (daybreak) | Ghidra + QEMU — ultra | ✅ | 160 | 344 | 6 | 190 | 72.0 | 45.7 | 98.3 | **0.517** | 42.9 | 30.0 |
-| 3 | Opus 4.8 | Ghidra + radare2, static | — | 122 | 343 | 7 | 228 | 66.4 | 34.9 | 98.0 | **0.424** | 32.0 | 21.7 |
-| 4 | Opus 5 | Ghidra + radare2, static | — | 101 | 334 | 16 | 249 | 62.1 | 28.9 | 95.4 | **0.326** | 24.9 | 16.9 |
-| 5 | GPT-5 Codex (daybreak) | Ghidra + angr + QEMU — xhigh | ✅ | 69 | 348 | 2 | 281 | 59.6 | 19.7 | 99.4 | **0.317** | 19.1 | 15.1 |
-| 6 | GPT-5.6-Sol | Ghidra + QEMU + Valgrind | ✅ | 82 | 330 | 20 | 268 | 58.9 | 23.4 | 94.3 | **0.251** | 17.7 | 13.1 |
-| 7 | GPT-5.4-mini | angr + QEMU | ✅ | 29 | 350 | 0 | 321 | 54.1 | 8.3 | 100.0 | **0.208** | 6.0 | 4.0 |
-| 8 | Opus 5 | Ghidra + radare2, static · run 2 | — | 84 | 318 | 32 | 266 | 57.4 | 24.0 | 90.9 | **0.200** | 18.3 | 11.7 |
-| 9 | GPT-5 Codex (daybreak) | Ghidra + angr + QEMU — high | ✅ | 54 | 305 | 45 | 296 | 51.3 | 15.4 | 87.1 | **0.037** | 13.1 | 8.3 |
-| 10 | GPT-5.6 Codex | no tools, static | — | 45 | 313 | 37 | 305 | 51.1 | 12.9 | 89.4 | **0.036** | 9.7 | 4.3 |
-| 11 | GPT-5.3 Codex spark | QEMU only | ✅ | 326 | 22 | 328 | 24 | 49.7 | **93.1** | 6.3 | **−0.011** | 72.0 | 8.3 |
-| — | *always-patched baseline* | — | — | 0 | 350 | 0 | 350 | 50.0 | 0.0 | 100.0 | **0.000** | 0.0 | 0.0 |
-| — | *always-vulnerable / CWE-125* | — | — | 350 | 0 | 350 | 0 | 50.0 | 100.0 | 0.0 | **0.000** | **66.6** | 11.1 |
+| # | Model | Effort | Harness | Exec | TP | TN | FP | FN | Acc. % | Rec. | Spec. | **MCC** | *Any* | *Exact* | Est. cost $ |
+|--:|---|---|---|:-:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| 1 | **Opus 5** | high | PyGhidra + QEMU, multi-agent (Claude Code) | ✅ | 263 | 348 | 2 | 87 | **87.3** | 75.1 | 99.4 | **0.769** | 74.6 | 53.4 | 527.7 |
+| 2 | Kimi K3 (open weights) | high | Ghidra + radare2/rizin + QEMU (opencode) | ✅ | 208 | 346 | 4 | 142 | 79.1 | 59.4 | 98.9 | **0.634** | 56.6 | 41.1 | 158.3 |
+| 3 | DeepSeek-V4.1 Flash (open weights) | max | Ghidra 12.1.2 + radare2 + QEMU (opencode) | ✅ | 199 | 349 | 1 | 151 | 78.3 | 56.9 | 99.7 | **0.626** | 55.7 | 41.4 | 9.2 |
+| 4 | GPT-5.6 Sol (Daybreak Blue) | ultra | Ghidra + radare2 + QEMU (codex) | ✅ | 160 | 344 | 6 | 190 | 72.0 | 45.7 | 98.3 | **0.517** | 42.9 | 30.0 | 211.1 |
+| 5 | Opus 4.8 | high | Ghidra 12.1.2 + radare2, static | — | 122 | 343 | 7 | 228 | 66.4 | 34.9 | 98.0 | **0.424** | 32.0 | 21.7 | 527.7 |
+| 6 | Opus 5 | high | Ghidra 12.1.3 + detectors, static | — | 101 | 334 | 16 | 249 | 62.1 | 28.9 | 95.4 | **0.325** | 24.9 | 16.9 | 527.7 |
+| 7 | GPT-5.6 Sol (Daybreak Blue) | xhigh | Ghidra + radare2 + angr + QEMU (codex) | ✅ | 69 | 348 | 2 | 281 | 59.6 | 19.7 | 99.4 | **0.317** | 19.1 | 15.1 | 211.1 |
+| 8 | GPT-5.6 Sol | xhigh | Ghidra + radare2 + QEMU + Valgrind (codex) | ✅ | 82 | 330 | 20 | 268 | 58.9 | 23.4 | 94.3 | **0.251** | 17.7 | 13.1 | 211.1 |
+| 9 | Opus 5 | high | Ghidra 12.1.2 + radare2 + MCP, static | — | 84 | 318 | 32 | 266 | 57.4 | 24.0 | 90.9 | **0.200** | 18.3 | 11.7 | 527.7 |
+| 10 | GPT-5.4-mini | xhigh | radare2 + angr + QEMU (codex) | ✅ | 29 | 350 | 0 | 321 | 54.1 | 8.3 | 100.0 | **0.208** | 6.0 | 4.0 | — |
+| 11 | GPT-5.6 Sol (Daybreak Blue) | high | Ghidra + radare2 + angr + QEMU (codex) | ✅ | 54 | 305 | 45 | 296 | 51.3 | 15.4 | 87.1 | **0.037** | 13.1 | 8.3 | 211.1 |
+| 12 | GPT-5.6 Sol | high | radare2 (r2dec), static (codex) | — | 45 | 313 | 37 | 305 | 51.1 | 12.9 | 89.4 | **0.036** | 9.7 | 4.3 | 211.1 |
+| 13 | GPT-5.3 codex-spark | xhigh | radare2 + QEMU (codex) | ✅ | 326 | 22 | 328 | 24 | 49.7 | **93.1** | 6.3 | **−0.012** | 72.0 | 8.3 | — |
+| — | *always-patched baseline* | — | — | — | 0 | 350 | 0 | 350 | 50.0 | 0.0 | 100.0 | **0.000** | 0.0 | 0.0 | — |
+| — | *always-vulnerable / CWE-125* | — | — | — | 350 | 0 | 350 | 0 | 50.0 | 100.0 | 0.0 | **0.000** | **66.6** | 11.1 | — |
+
+*Est. cost* is the estimated OpenRouter API cost of one 700-binary run: Kimi K3
+is measured ($158.32 for 342M tokens); the others are scaled from it by
+published per-token price at equal token volume. The leader actually ran on a
+Claude Max subscription. Every row is reproducible from `evaluation/`
+(section 3.3).
 
 The two baselines are why **MCC is the primary endpoint**: both score exactly
 50.0 % accuracy at MCC 0.000, and the always-`CWE-125` one scores **66.6 % on
-*Any*** — higher than eight of the eleven real runs.
+*Any*** — higher than eleven of the thirteen real runs.
+
+### The leading configuration, in full
+
+For anyone reproducing the top row, this is exactly what it was:
+
+| | |
+|---|---|
+| **Model** | `claude-opus-5`, reasoning effort **high** |
+| **Access** | Claude Max subscription (OAuth), not an API key |
+| **Harness** | Claude Code, multi-agent `Workflow` orchestration |
+| **OS** | **NixOS 26.11 "Zokor"**, build `26.11.20260804.e72e4f2` |
+| **Kernel / CPUs** | Linux 7.1.6 x86_64, 12 cores |
+| **Toolchain** | pinned Nix devshell, nixpkgs `nixos-unstable` @ `ffb3c9b700e7` |
+| **Decompiler** | Ghidra 12.1.2 via PyGhidra 3.1.0 headless, JDK 21 |
+| **Dynamic** | qemu-user 11.1 (`qemu-arm`, `qemu-mips`, `qemu-ppc`, `qemu-riscv64`, …) |
+| **Static** | `readelf`, `objdump`, `strings`, `file` |
+| **Deliberately not used** | angr, radare2, MCP servers |
+
+The pipeline was ten stages, seven of them scripted and deterministic: inventory
+→ 700 Ghidra headless decompilations → **sanitise** (strip model-directed text
+planted in the binaries) → qemu-user probes → round-robin chunking into 70
+chunks of 10 so no chunk is single-architecture → **two independent analysis
+lenses per chunk**, a bug-hunter and a patch-prover, each blind to the other →
+a third agent reconciling every disagreement by re-deriving the answer *before*
+reading either finding → assemble. **55 binaries were disputed** between the two
+lenses and went to the reconciler.
+
+> The OS is recorded for reproducibility, not as a cause. Only one of the thirteen
+> runs used NixOS, and the toolchain came from a pinned devshell rather than the
+> system channel — the run reproduces on any host. What distinguishes this
+> configuration is the multi-agent adversarial structure (independent bug-hunter
+> and patch-prover, then reconciliation) combined with execution, not the distro.
 
 ### Three findings
 
-**1 · Execution is the biggest lever.** The same Opus 5 spans **MCC 0.200 →
-0.326 → 0.769** across two static harnesses and a PyGhidra+QEMU multi-agent one.
-Nothing else moves a model that far — though execution, OS and agent scaffold
-change together, so the gain is real while its cause is not identified. With the
-harness fixed and only effort varied, GPT-5 Codex scales monotonically:
-**MCC 0.037 → 0.317 → 0.517** at high, xhigh, ultra.
+**1 · The harness matters more than the model.** Read the table by harness and
+the ranking explains itself:
+
+| Factor | with it | without it |
+|---|--:|--:|
+| **Ghidra / PyGhidra in the loop** | n=10, mean MCC **0.410**, max **0.769** | n=3, mean **0.077**, max 0.208 |
+| executes the binary | n=9, mean 0.372 | n=4, mean 0.246 |
+
+**Ghidra-class decompilation is the single strongest factor** — no run without
+it exceeds 0.208. Note this is *Ghidra specifically*, not decompilation in
+general: the one run that decompiled with radare2's `r2dec` instead scored
+0.036, though at *n* = 1 that is an observation, not a comparison of
+decompilers. Execution alone is much weaker and helps only *on top of* a
+decompiler:
+GPT-5.3 spark executes every binary and finishes last. The best configuration is **Ghidra + execution +
+maximum effort**, and each part is necessary: on a near-fixed stack (angr
+differs) GPT-5.6 Sol (Daybreak Blue) scales monotonically with effort (**0.037 → 0.317 → 0.517**), while one Opus 5
+spans **0.200 → 0.769** across harnesses.
+
+**Open-weight models are close behind.** Kimi K3 and DeepSeek-V4.1 Flash ran
+the same pinned Ghidra + QEMU devshell as the leader and take second and third
+place (MCC 0.634 and 0.626, at an estimated $158 and $9 per run). Their true
+positives are almost a subset of the leader's — 206 of Kimi's 208 and 197 of
+DeepSeek's 199 are also found by Opus 5 — and what Opus 5 finds alone is mostly
+silent arithmetic (CWE-191: 82.4 % against 5.9 % and 11.8 %).
+
+**Model and harness interact — and the direction flips.**
+
+| Comparison | Winner | McNemar |
+|---|---|--:|
+| Opus 4.8 vs Opus 5 (static, Ghidra+r2) | **Opus 4.8**, 113–50 | *p* = 8.9 × 10⁻⁷ |
+| Opus 4.8 vs Opus 5 (static, +detectors) | **Opus 4.8**, 84–54 | *p* = 0.013 |
+| Opus 5 **(+ QEMU execution)** vs Opus 4.8 | **Opus 5**, **150–4** | *p* = 2 × 10⁻³⁹ |
+
+Without execution the *older* model wins — against **both** Opus 5 static runs,
+so it is not an artifact of one harness. Give Opus 5 an executing harness and
+the order inverts overwhelmingly.
+
+**Why can an older model win at all?** Much of it is one blind spot, not general
+weakness. That Opus 5 run flagged **24 of 32 patched Csmith binaries** as
+vulnerable; Opus 4.8 flagged **none**. Csmith's machine-generated arithmetic —
+full of `safe_math` wrappers and expressions that *look* like overflow but are
+defined behaviour — is exactly the trap the track was built for. Excluding it:
+
+| Run | MCC (all 700) | MCC (650, no Csmith) |
+|---|--:|--:|
+| Opus 4.8 | 0.424 | 0.415 |
+| Opus 5 (static, Ghidra+r2) | **0.200** | **0.292** |
+
+Half the gap was that one track. But Opus 4.8 still wins the remaining 650
+challenges 88–44 (*p* = 1.6 × 10⁻⁴), so a residual difference is real. So "just
+use the strongest model" is not a rule here, and neither is "the harness is all
+that matters": **the pairing is what matters.**
+
+> **Caution on the three "static" runs.** They are *not* repeats of one
+> configuration. Opus 4.8 used Ghidra 12.1.2 + radare2; `Opus 5 (static,
+> Ghidra+r2)` used the same plus a Ghidra MCP server; `Opus 5 (static,
+> +detectors)` used Ghidra 12.1.3 in Docker with capstone/lief and hand-written
+> vulnerability detectors. **No two runs in this study share a byte-identical
+> stack**, so every model comparison is *near*-controlled at best.
 
 **2 · Detection is the bottleneck, not naming.** The leader names an accepted
 CWE in **99.2 %** of the binaries it correctly flags, but flags only 75.1 % of
@@ -288,10 +427,86 @@ The whole gap from 87.3 % to 100 % is 87 missed vulnerabilities.
 
 **3 · Recall without specificity is worthless.** GPT-5.3 spark calls almost
 everything vulnerable — 326 TP, the study's highest recall at 93.1 %, and 328
-FP. Accuracy 49.7 %, **MCC −0.011**: worse than a coin flip. A benchmark
+FP. Accuracy 49.7 %, **MCC −0.012**: worse than a coin flip. A benchmark
 reporting accuracy, recall or *Any* alone would rank it near the top.
 
 <div align="center"><img src="images/recall_vs_specificity.png" width="520"/></div>
+
+### A mechanical baseline: does running the binary suffice?
+
+A crash-only baseline is undefined when trigger inputs are withheld — but for
+the **470 no-input challenges** the binary can simply be run. We execute each
+once (natively on `arm64-macos`, under QEMU user-mode elsewhere) with **no
+input, no decompiler and no model**, and predict *vulnerable* iff the process
+terminates on a fault signal.
+
+| Run (rescored on the same 470) | Recall | Spec. | **MCC** |
+|---|--:|--:|--:|
+| Opus 5 — PyGhidra + QEMU | 69.6 | 99.2 | **0.723** |
+| Kimi K3 | 53.0 | 99.6 | **0.598** |
+| DeepSeek-V4.1 Flash | 50.4 | 100.0 | **0.585** |
+| GPT-5.6 Sol (Daybreak Blue), ultra | 44.8 | 98.3 | **0.514** |
+| GPT-5.6 Sol (Daybreak Blue), xhigh | 26.5 | 100.0 | **0.394** |
+| **Crash-only execution — no model** | **25.2** | **100.0** | **0.383** |
+| Opus 4.8 | 27.8 | 98.8 | **0.380** |
+| *seven further runs* | | | *0.335 … −0.021* |
+
+The baseline hits **100 % precision** — 58 of 230 vulnerable members fault and
+**no patched member ever does**, independent evidence that the pairs differ only
+as intended — and it **outranks eight of the thirteen agentic configurations**.
+Two things follow: most of the field is not yet extracting information a
+decompiler-free `./binary` does not already provide, and the leader's margin
+over mechanism is large (0.723 vs 0.383).
+
+Its per-CWE recall is the cleanest definition of "silent":
+
+| Resolves by crashing | | Invisible to execution | |
+|---|--:|---|--:|
+| CWE-415 double free | 14/14 — 100 % | CWE-190 integer overflow | 0/19 — **0 %** |
+| CWE-476 NULL deref | 13/13 — 100 % | CWE-788 past end of buffer | 0/15 — **0 %** |
+| CWE-824 uninit. pointer | 5/7 — 71 % | CWE-129 array index | 0/16 — **0 %** |
+| CWE-369 divide by zero | 8/19 — 42 % | CWE-191 integer underflow | 0/8 — **0 %** |
+| CWE-121 stack overflow | 7/18 — 39 % | CWE-119 buffer ops | 0/10 — **0 %** |
+
+Every point a model scores on the right-hand column is reasoning that execution
+alone cannot supply. Raw data: `evaluation/BASELINE-crash-only.json`.
+
+### Localization: naming is not pointing
+
+Detection and CWE naming say nothing about whether a system knows *where* the
+defect is. Each run optionally returns an address; we grade it against a sink
+address recovered for **266 of the 350** vulnerable binaries — recompile the
+member with `-g` at its shipped target and optimization, match the ESBMC
+violated-property line in the DWARF line table on (file, line), and accept the
+address only when the stripped `-g` build's `.text` is byte-identical to the
+shipped binary. Because `-O3 -flto` inlines 72 % of sinks into `main`, we grade
+containment in the DWARF range of the **inlined body** (median 2.5 % of `.text`),
+not the enclosing symbol (median 70.3 % — close to what a random address scores).
+
+| Run | *n* addressed | Loc@function | Loc@instruction |
+|---|--:|--:|--:|
+| **Opus 5 — PyGhidra + QEMU** | **204** | 30 % | 6 % |
+| Kimi K3 | 170 | 29 % | 6 % |
+| DeepSeek-V4.1 Flash | 157 | 25 % | 6 % |
+| GPT-5.6 Sol (Daybreak Blue), ultra | 121 | 31 % | 8 % |
+| **Opus 4.8 — static** | 107 | **46 %** | **11 %** |
+| Opus 5 — static (detectors) | 75 | 33 % | 9 % |
+| GPT-5.6 Sol, xhigh | 68 | 10 % | 1 % |
+| Opus 5 — static (radare2) | 65 | 26 % | 5 % |
+| GPT-5.6 Sol (Daybreak Blue), xhigh | 55 | 33 % | 2 % |
+| GPT-5.6 Sol (Daybreak Blue), high | 41 | 15 % | 0 % |
+| GPT-5.6 Sol, high (static) | 36 | 22 % | 0 % |
+| GPT-5.4-mini, xhigh | 22 | 0 % | 0 % |
+| GPT-5.3 codex-spark, xhigh | 0 | — | — |
+
+**Detection and localization dissociate.** The leader addresses 204 of the 266
+ground-truth cases — nearly twice Opus 4.8's 107 — yet lands in the right
+function 30 % of the time against Opus 4.8's 46 %, and on the exact instruction
+6 % against 11 %. The configuration that finds the most defects is not the one
+that best explains them, exactly as an execution-driven detector predicts: a
+fault tells you a program is wrong without telling you which store was
+responsible. Instruction-level precision stays at or below 11 % for every run,
+so none of these systems reliably pinpoints a defect it has correctly flagged.
 
 ### What the leader misses
 
@@ -309,22 +524,27 @@ defect that does not announce itself".**
 
 <div align="center"><img src="images/track_and_target_accuracy.png" width="960"/></div>
 
-The hard tracks behave as designed — complex no-input 76.0 %, obfuscated 77.1 %,
-adversarial 80.0 % — against 96–100 % where a triggering file input can be
-replayed. Across the ten architectures there is **no measurable effect**
+The hard tracks behave as designed — complex no-input 76.0 % (38/50),
+obfuscated 77.1 % (54/70), adversarial 80.0 % (40/50), Csmith 82.0 % (41/50) —
+against ordinary no-input 90.0 % (225/250), user-argument 87.8 % (79/90), file
+96.0 % (95/99) and complex file-read 100 % (30/30). Across the ten architectures there is **no measurable effect**
 (χ² = 1.66, df = 9, ***p* = 0.996**): the 84.3–90.0 % spread is chance at 70
 binaries per target, and MIPS32 big-endian is the *best* target.
 
 ### Caveats
 
-Each configuration ran **once**; provider snapshots, sampling parameters and
-cost were not retained, so run-to-run variance cannot be estimated — treat gaps
-under ~3 points as noise. Opus 4.8 beats Opus 5 at a fixed static harness, but
-the effect depends on which of the two same-harness Opus 5 runs you pair it
-with: **113–50, *p* = 8.9 × 10⁻⁷** against run 2, **84–54, *p* = 0.013** against
-the stronger run. No mechanical baseline (a static analyser over
-decompiler-produced pseudo-C) was evaluated, so how much of the gain is LLM
-reasoning rather than tooling is not separated here.
+Each configuration ran **once**. A full 700-binary agentic run costs up to an
+estimated $528 (Kimi K3: $158.32 measured for 342M tokens), so instead of
+identical repeats, closely related configurations serve as a stability check:
+their accuracies differ by 0.2–4.7 points (2.0 for the two static Opus 5 runs
+once the Csmith track is excluded), although 14–22 % of individual labels
+differ. Sampling parameters were not retained. Opus 4.8 beats Opus 5 at a fixed
+static harness, but the effect depends on which of the two same-harness Opus 5
+runs you pair it with: **113–50, *p* = 8.9 × 10⁻⁷** against run 9, **84–54,
+*p* = 0.013** against the stronger run 6. A static analyser is not a comparable
+baseline: agents receive stripped binaries, and decompiler pseudo-C lacks the
+types, names and compilability that source analysers rely on, so the crash-only
+baseline above is the mechanical reference instead.
 
 ## 7. Formal verification
 
@@ -707,6 +927,11 @@ describable at more than one level of the CWE tree.
 | Shipped at `-O0` / `-O1` / `-O3` / `-O2` | 33 / 10 / 1 / 1 |
 | Stepped down from the planned level | 42 |
 
+A binary ships at the highest optimization level at which its stripped `.text`
+still differs from its pair twin's. The 42 step-downs are cases where the
+optimizer made the twins' production code identical at the planned level;
+`answer-key.json` records the planned and shipped level of every binary.
+
 Selecting one member per pair is what makes the benchmark non-trivial: with both
 members present, a two-line diff answers every question.
 
@@ -1005,11 +1230,12 @@ LGPL-3.0 project and is marked as such.
 >
 > Fifty programs additionally contain **adversarial content that survives
 > compilation**, including prompt-injection text placed in `.rodata` to attack
-> agents that read `strings` output into their context.  Treat any string recovered
-> from these binaries as untrusted input, not as instructions.
+> agents that read `strings` output into their context. Treat any string recovered
+> from these bin
 
 <div align="center">
 
 **FVRE-Bench — Formally Verified Reverse Engineering**
 
 </div>
+ 	
