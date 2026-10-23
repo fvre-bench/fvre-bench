@@ -1,0 +1,3252 @@
+{
+ "baseline": "crash-only",
+ "description": "Each no-input challenge binary run once under QEMU user-mode (native on arm64-macOS) with no input; predicted vulnerable iff the process terminates on a fault signal. No model, no decompiler.",
+ "scope": "470 no-input challenges of the 700",
+ "results": [
+  {
+   "cid": "FVRE-001",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-006",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-009",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-010",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-011",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-014",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-015",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-021",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-022",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-023",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-024",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-025",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-027",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-028",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-029",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-031",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-032",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-034",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-035",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-036",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-037",
+   "target": "aarch64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-039",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-040",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-041",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-044",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-046",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-047",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-048",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-051",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-052",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-053",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-055",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-057",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-058",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-059",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-060",
+   "target": "mips64le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-062",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-065",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-066",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-068",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-069",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-071",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-072",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-073",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-074",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-076",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-078",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGILL",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-079",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-081",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-083",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-084",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-085",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-087",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-088",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-089",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-094",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-096",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-099",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-102",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-103",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-105",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-106",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-107",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-111",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-114",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-117",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-118",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-119",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-120",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-123",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-126",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-127",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-128",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-131",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-132",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-133",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-134",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-135",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-136",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-137",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-140",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-141",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-142",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-144",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-145",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-146",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-148",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-151",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-152",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-155",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-158",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-160",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-161",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-163",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-165",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-166",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-167",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-168",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-169",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-170",
+   "target": "aarch64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-171",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-172",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-174",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-175",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-176",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-177",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-179",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-180",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-181",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-182",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-183",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-184",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-186",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-190",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-191",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-194",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-195",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-196",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-197",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-198",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-199",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-200",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-202",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-203",
+   "target": "aarch64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-204",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-205",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-206",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-207",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-210",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-212",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-213",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-214",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-215",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-216",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-217",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-218",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-219",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-220",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-221",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-222",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-223",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-224",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-225",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-226",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-227",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-230",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-231",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-232",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-233",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-234",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-235",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-236",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-238",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-240",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-241",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-242",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-249",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-250",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-252",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-254",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-256",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-258",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-259",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-260",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-261",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-262",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-263",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-265",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-266",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-270",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-272",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-274",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-277",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-278",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-279",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-280",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-281",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-283",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGILL",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-285",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-287",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-288",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-292",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-295",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-297",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-298",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-301",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-302",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-304",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-308",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-311",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-313",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-314",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-315",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-316",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-317",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-318",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-319",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-320",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-321",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-322",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-323",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-325",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-326",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-327",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-328",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-329",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-330",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-331",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-334",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-338",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-339",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-340",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-341",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-342",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-343",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-344",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-346",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-347",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-348",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-350",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-351",
+   "target": "mips64le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-352",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-353",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-356",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-358",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-359",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-360",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-361",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-362",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-363",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-365",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-366",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-369",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-370",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-371",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-372",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-373",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-377",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-378",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-381",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-382",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-385",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-386",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-387",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-388",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-393",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-396",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-397",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-398",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-399",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-403",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-404",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-405",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-407",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-408",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-411",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-412",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-415",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-417",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-419",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-420",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-421",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-422",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-423",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-426",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-427",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-430",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-432",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-433",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-434",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-435",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-437",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-438",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-439",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-440",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-441",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-442",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-443",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-444",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-445",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-447",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-449",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-450",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-451",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-452",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-455",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-456",
+   "target": "mips64le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-457",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-458",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-459",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-460",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-464",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-466",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-467",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-470",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-471",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-472",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-474",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-476",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-477",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-480",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-482",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-483",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-484",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-487",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-488",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-489",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-490",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-492",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-494",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-495",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-497",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-499",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-502",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-503",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-504",
+   "target": "x86_64",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-505",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-506",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-508",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-510",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-512",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-516",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-517",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-518",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-519",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-520",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-524",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-526",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-529",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-533",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-536",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-537",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-540",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-543",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-544",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-546",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-547",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-548",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-552",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-554",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-555",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-556",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-557",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-558",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-560",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-567",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-570",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-571",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-572",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-574",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-575",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-578",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-579",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-580",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-581",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-583",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-584",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-586",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-587",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-590",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-593",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-594",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-597",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-599",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-600",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-602",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-603",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-604",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-606",
+   "target": "aarch64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-607",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-608",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-610",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-612",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-614",
+   "target": "i686",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-616",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-617",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-618",
+   "target": "riscv64",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-619",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-620",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-622",
+   "target": "mips32le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-623",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-625",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-626",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-627",
+   "target": "mips32le",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-629",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-630",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-631",
+   "target": "mips32le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-632",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-633",
+   "target": "aarch64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-634",
+   "target": "armv7hf",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-635",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-637",
+   "target": "mips64le",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-639",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-640",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-641",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-644",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-645",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-646",
+   "target": "i686",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-647",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-648",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-650",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-651",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-652",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-653",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-660",
+   "target": "x86_64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-661",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-662",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-664",
+   "target": "mips32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-666",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-667",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-669",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-670",
+   "target": "i686",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-675",
+   "target": "mips64le",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-677",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-679",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-680",
+   "target": "mips32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-681",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-682",
+   "target": "ppc32be",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-683",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-684",
+   "target": "mips32be",
+   "truth": true,
+   "sig": "SIGFPE",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-685",
+   "target": "riscv64",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-686",
+   "target": "riscv64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-688",
+   "target": "ppc32be",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-697",
+   "target": "x86_64",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-699",
+   "target": "armv7hf",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-002",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-008",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-016",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-018",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-026",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-045",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-056",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-093",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-100",
+   "truth": true,
+   "sig": "SIGTRAP",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-109",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-130",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-239",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-243",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-255",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-286",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-291",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-293",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-294",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-333",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-335",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-345",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-354",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-364",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-374",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-389",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-395",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-400",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-409",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-410",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-413",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-491",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-507",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-514",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-541",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-550",
+   "truth": true,
+   "sig": "SIGSEGV",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-553",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  },
+  {
+   "cid": "FVRE-559",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-573",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-589",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-598",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-611",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-636",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-638",
+   "truth": true,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-665",
+   "truth": false,
+   "sig": null,
+   "crash": false
+  },
+  {
+   "cid": "FVRE-674",
+   "truth": true,
+   "sig": "SIGABRT",
+   "crash": true
+  }
+ ]
+}
