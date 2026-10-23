@@ -3,7 +3,7 @@
  "benchmark": "FVRE-Bench-700",
  "generated": "2026-08-19",
  "generation_seed": 20260819,
- "design": "One randomly chosen member per pair (never both, so no cross-member diff is possible), exactly 350 vulnerable / 350 patched, 70 binaries per architecture over 10 targets, each compiled at the hardest optimization level at which the vulnerability provably survives into the stripped production (.text) binary. All binaries stripped.",
+ "design": "One randomly chosen member per pair (never both, so no cross-member diff is possible), exactly 350 vulnerable / 350 patched, 70 binaries per architecture over 10 targets, each compiled at the highest optimization level at which the twins' stripped .text still differ and the sanitizer gate passes at that target and level. All binaries stripped.",
  "summary": {
   "challenges": 700,
   "labels": {
@@ -24585,7 +24585,7 @@
   "public_artifact": "bin/ \u2014 700 stripped binaries, one randomly chosen member per pair. Analysts receive nothing but the binaries.",
   "answer_key": "This file. challenge_id -> source_id, member, is_vulnerable, main_cwe and the accepted CWE family, plus target, compiler, optimization level and the binary's SHA-256.",
   "source_corpus": "The 1,400 sources, their inputs and all ESBMC/sanitizer evidence ship separately in FVRE-bench.zip.",
-  "survival_basis": "Vulnerability presence is guaranteed input-independently: each shipped binary's .text differs from its pair twin's .text, proving the vulnerability-distinguishing code survived compilation into the stripped binary regardless of runtime input.",
+  "survival_basis": "Survival evidence for every shipped binary: ASan/UBSan trigger the vulnerable member and leave the patched member clean in instrumented builds at the same target and optimization level, and the shipped vulnerable and patched binaries differ in their stripped .text. For 266 of the 350 vulnerable binaries, a byte-identical debug rebuild maps the ESBMC violation line to an instruction in the shipped .text.",
   "regenerating": "A fresh, uncontaminated challenge can be minted at any time by re-drawing one member per pair from the source corpus with a new generation_seed."
  },
  "localization_ground_truth": {
