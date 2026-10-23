@@ -479,7 +479,7 @@ Its per-CWE recall is the cleanest definition of "silent":
 Every point a model scores on the right-hand column is reasoning that execution
 alone cannot supply. Raw data: `evaluation/BASELINE-crash-only.json`.
 
-### Localization: naming is not pointing
+### Localization: the best detectors also point best
 
 Detection and CWE naming say nothing about whether a system knows *where* the
 defect is. Each run optionally returns an address; we grade it against a sink
@@ -490,31 +490,32 @@ address only when the stripped `-g` build's `.text` is byte-identical to the
 shipped binary. Because `-O3 -flto` inlines 72 % of sinks into `main`, we grade
 containment in the DWARF range of the **inlined body** (median 2.5 % of `.text`),
 not the enclosing symbol (median 70.3 % — close to what a random address scores).
+Ghidra reports position-independent binaries at its default image base
+(0x100000 on x86_64/aarch64/riscv64, 0x10000 on i686/armv7hf), so such addresses
+are rebased before grading.
 
 | Run | *n* addressed | Loc@function | Loc@instruction |
 |---|--:|--:|--:|
-| **Opus 5 — PyGhidra + QEMU** | **204** | 30 % | 6 % |
-| Kimi K3 | 170 | 29 % | 6 % |
-| DeepSeek-V4.1 Flash | 157 | 25 % | 6 % |
+| **Opus 5 — PyGhidra + QEMU** | **204** | **65 %** | 22 % |
+| Kimi K3 | 170 | 64 % | **23 %** |
+| DeepSeek-V4.1 Flash | 157 | 62 % | 21 % |
 | GPT-5.6 Sol (Daybreak Blue), ultra | 121 | 31 % | 8 % |
-| **Opus 4.8 — static** | 107 | **46 %** | **11 %** |
-| Opus 5 — static (detectors) | 75 | 33 % | 9 % |
-| GPT-5.6 Sol, xhigh | 68 | 10 % | 1 % |
+| Opus 4.8 — static | 107 | 46 % | 11 % |
+| Opus 5 — static (detectors) | 75 | 63 % | 20 % |
+| GPT-5.6 Sol, xhigh | 68 | 13 % | 1 % |
 | Opus 5 — static (radare2) | 65 | 26 % | 5 % |
 | GPT-5.6 Sol (Daybreak Blue), xhigh | 55 | 33 % | 2 % |
-| GPT-5.6 Sol (Daybreak Blue), high | 41 | 15 % | 0 % |
+| GPT-5.6 Sol (Daybreak Blue), high | 41 | 39 % | 0 % |
 | GPT-5.6 Sol, high (static) | 36 | 22 % | 0 % |
 | GPT-5.4-mini, xhigh | 22 | 0 % | 0 % |
 | GPT-5.3 codex-spark, xhigh | 0 | — | — |
 
-**Detection and localization dissociate.** The leader addresses 204 of the 266
-ground-truth cases — nearly twice Opus 4.8's 107 — yet lands in the right
-function 30 % of the time against Opus 4.8's 46 %, and on the exact instruction
-6 % against 11 %. The configuration that finds the most defects is not the one
-that best explains them, exactly as an execution-driven detector predicts: a
-fault tells you a program is wrong without telling you which store was
-responsible. Instruction-level precision stays at or below 11 % for every run,
-so none of these systems reliably pinpoints a defect it has correctly flagged.
+**The best detectors also localize best.** The leader addresses 204 of the 266
+ground-truth cases — nearly twice Opus 4.8's 107 — and lands in the right
+function 65 % of the time against Opus 4.8's 46 %. Kimi K3 (64 %) and
+DeepSeek-V4.1 Flash (62 %) follow closely. Pinpointing the exact instruction
+remains hard: at most 23 % for every run. Reproduce with
+`python3 evaluation/loc_score.py`.
 
 ### What the leader misses
 
