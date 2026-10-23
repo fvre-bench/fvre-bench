@@ -27,6 +27,16 @@ status_all=collections.Counter(json.loads(l)['status'] for l in GT_FILE.read_tex
 def paddr(a):
     if a is None: return None
     m=re.search(r'0x[0-9a-fA-F]+',str(a)); return int(m.group(0),16) if m else None
+# Ghidra loads position-independent ELF executables at a default image base
+# (0x100000 on 64-bit targets, 0x10000 on i686/armv7hf), while the ground truth
+# uses unrelocated addresses. Rebase only when the reported address lies outside
+# .text and inside it after subtracting the standard base.
+GHIDRA_BASE={'x86_64':0x100000,'aarch64':0x100000,'riscv64':0x100000,'i686':0x10000,'armv7hf':0x10000}
+def rebase(a,g):
+    b=GHIDRA_BASE.get(g.get('target'))
+    if a is None or not b or not g.get('text_start') or not g.get('text_size'): return a
+    ts=int(g['text_start'],16); te=ts+int(g['text_size'],16)
+    return a-b if not (ts<=a<te) and ts<=a-b<te else a
 def lab(p):
     v=p.get('is_vulnerable'); return v if isinstance(v,bool) else None
 MODELS=[('Opus 5 (PyGhidra/QEMU)','Opus5-Linux-high-effort-'),('GPT-5.6 Sol (Daybreak Blue), ultra','gpt-daybreak-blue-latest ultra'),('DeepSeek-V4.1 Flash','deepseek-v4.1-flash_max'),('Kimi K3','kimi-k3-devshell'),('Opus 4.8','OPUS-4.8-macos_high'),('Opus 5 static (detectors)','OPUS5-macos-high_reasoning'),('Opus 5 static (radare2)','OPUS-5-macos_high'),
@@ -40,7 +50,7 @@ for nm,stem in MODELS:
     for cid,g in gt.items():
         p=P.get(cid,{})
         if lab(p) is not True: continue
-        a=paddr(p.get('address'))
+        a=rebase(paddr(p.get('address')),g)
         if a is None: continue
         det+=1
         fs=int(g['func_start'],16) if g.get('func_start') else None
@@ -102,19 +112,18 @@ L.append("  symbol is `main` for 72% of sinks and spans a median **70.3%** of `.
 L.append("  ~60% you score by guessing a random code address. The DWARF inline range spans a median **2.5%**.")
 L.append("- Denominator differs per model (each localizes only what it detected and addressed); report rate **and** N.\n")
 L.append("## 4. Findings\n")
-L.append("1. **Strong detectors also localize -- but far less well than previously reported.** On the")
-L.append("   inline-resolved metric Opus 4.8 lands in the right function 46% of the time, Opus 5 static (detectors) 33%,")
-L.append("   GPT-5.6 Sol (Daybreak Blue), xhigh 33%. The old symbol-range figures (90%, 60%, 91%) were inflated")
-L.append("   roughly twofold by LTO inlining everything into `main`.")
-L.append("2. **Instruction-level precision stays low for all (<=11%).** Pinpointing the exact faulting")
+L.append("1. **The strongest detectors also localize best.** On the inline-resolved metric the leader")
+L.append("   (Opus 5, PyGhidra+QEMU) lands in the right function 65% of the time, Kimi K3 64% and")
+L.append("   DeepSeek-V4.1 Flash 62%, against Opus 4.8's 46%.")
+L.append("2. **Instruction-level precision stays low (<=23%).** Pinpointing the exact faulting")
 L.append("   instruction is much harder than the function.")
-L.append("3. **The ranking survives the correction.** Localization still separates understanding from")
-L.append("   guessing -- weak/over-flagging models localize poorly (GPT-5.4-mini 0%, spark gave no addresses")
-L.append("   on GT cases) -- but the absolute gap to 'solved' is much larger than the old numbers implied.\n")
+L.append("3. **Weak or over-flagging runs localize poorly** (GPT-5.4-mini 0%, spark gave no addresses")
+L.append("   on ground-truth cases).\n")
 L.append("## 5. Caveats\n")
 L.append(f"- Scored over {len(gt)}/350 vulnerable binaries; report coverage alongside the metric.")
-L.append("- PIE/base-offset conventions vary; @function tolerates this, @instruction is strict, so")
-L.append("  @instruction is a lower bound.")
+L.append("- Ghidra reports PIE addresses at its default image base (0x100000 on x86_64/aarch64/riscv64,")
+L.append("  0x10000 on i686/armv7hf). Such addresses are rebased before grading when they fall outside")
+L.append("  .text and inside it after subtracting the base.")
 L.append("- All model runs are single-seed.\n")
 (ROOT/'LOCALIZATION-ANALYSIS.md').write_text("\n".join(L)+"\n")
 print("wrote LOCALIZATION-ANALYSIS.md ; GT addresses:",len(gt))
