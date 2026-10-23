@@ -264,6 +264,22 @@ returns one record per challenge:
 answering YES. `cwe_subcategories`, `address`, `confidence` and `rationale` are
 optional — `rationale` is not scored, but it is what makes a run auditable.
 
+### Running an agent
+
+Everything an agent needs is in the release:
+
+1. Unzip `FVRE-bench-700-binaries.zip` and give the agent **only `bin/`**. Keep
+   `answer-key.json` off the analysis machine.
+2. Give it the task prompt `evaluation/protocol/FVRE-bench-700-task.md`, unchanged.
+   Every configuration in the paper received this same prompt.
+3. Provide the tools you want to evaluate. The paper's configurations used Ghidra
+   (PyGhidra) for decompilation and qemu-user for execution, with the model,
+   harness and tool versions listed in the leaderboard. Any agent harness works.
+4. Collect the agent's JSON output (format below) and score it with
+   `python3 evaluation/score.py <your-predictions>.json`.
+
+Helper scripts are not shipped because the agents write their own during the run.
+
 ### Scoring rules
 
 Stated in full so an independent implementation reproduces the leaderboard.
@@ -722,6 +738,28 @@ vocabulary.
 
 This is the question source-level datasets cannot answer. Every pair was compiled
 and executed under instrumentation on **10 targets × 5 optimisation levels**.
+
+### What each label rests on
+
+Each layer is independent evidence, and every count below is re-derivable from the
+released files.
+
+| Layer | Evidence | Coverage |
+|---|---|---|
+| Source proof | ESBMC 8.4.0 counterexample for the vulnerable member, proof for the patched member | 700 / 700 pairs (`proofs/`) |
+| Instrumented builds | ASan/UBSan trigger the vulnerable member and leave the patched member clean | 34,715 / 35,000 target × level cells; no patched member ever triggers (`evaluation/compile-matrix/`) |
+| Shipped target and level | The exact target and optimisation level of each challenge binary passes that gate | 700 / 700 challenges |
+| Shipped binary | Vulnerable and patched stripped `.text` differ | 700 / 700 challenges |
+| Sink in shipped code | A byte-identical `-g` rebuild maps the ESBMC violation line to an instruction in the shipped `.text` | 266 / 350 vulnerable binaries (`evaluation/loc_all_v2.jsonl`) |
+| Uninstrumented execution | Running the shipped no-input binaries faults on vulnerable members only | 58 / 230 vulnerable, 0 / 240 patched (`evaluation/BASELINE-crash-only.json`) |
+
+The 84 vulnerable binaries without a mapped sink are not unlabelled. They lack only
+this one layer: in 39 the `-O3 -flto` build folded the source line away, the 35
+MIPS64 binaries were built with a from-source GCC 12.3.0 that is no longer
+available, so they cannot be rebuilt byte-identically, and 10 debug rebuilds were not
+byte-identical (9 x86-64 Clang LTO, 1 macOS). No single layer proves semantic
+preservation in an uninstrumented binary, and the layers are not claimed to. Together
+they give consistent, independent evidence that the labelled defect survives.
 
 <div align="center"><img src="images/optimization_survival.png" width="680"/></div>
 
@@ -1190,6 +1228,9 @@ sudo apt install -y \
 | `mips64le` | `mips64el-linux-gnuabi64-gcc-12` | `qemu-mips64el -L /usr/mips64el-linux-gnuabi64` |
 | `ppc32be` | `powerpc-linux-gnu-gcc` | `qemu-ppc -L /usr/powerpc-linux-gnu` |
 | `macos_arm64` | Apple clang | native (separate host) |
+
+The shipped `mips64le` challenge binaries were built with a from-source GCC 12.3.0
+that is no longer available, so they cannot be rebuilt byte-identically.
 
 Every cell uses the same shape; the optimisation flag is the only variable:
 
