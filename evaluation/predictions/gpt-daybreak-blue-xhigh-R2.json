@@ -1,0 +1,6493 @@
+{
+  "model": "GPT-5 Codex",
+  "tools": [
+    "file",
+    "readelf",
+    "objdump",
+    "llvm-objdump",
+    "rabin2",
+    "radare2",
+    "Ghidra 12.1.1",
+    "gdb",
+    "angr",
+    "cwe_checker 0.9.0",
+    "QEMU user-mode",
+    "Valgrind"
+  ],
+  "executed_binaries": true,
+  "host": "Linux 7.0.12+kali-arm64 aarch64",
+  "predictions": [
+    {
+      "challenge_id": "FVRE-001",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-002",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-003",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-124",
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1190",
+      "confidence": 0.98,
+      "rationale": "A reachable signed index writes four bytes before the stack array; the missing lower-bound check permits a stack underwrite."
+    },
+    {
+      "challenge_id": "FVRE-004",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-005",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-006",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-007",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-008",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-009",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-010",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-011",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-012",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-013",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-122",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x400710",
+      "confidence": 0.98,
+      "rationale": "The code allocates 16 bytes and then performs an input-controlled loop of as many as 63 byte stores into that allocation."
+    },
+    {
+      "challenge_id": "FVRE-014",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-015",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-016",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-017",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1270",
+      "confidence": 0.96,
+      "rationale": "An argc-derived index reaches a fixed stack array without a matching upper-bound check, allowing an out-of-bounds store."
+    },
+    {
+      "challenge_id": "FVRE-018",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-019",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-020",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-021",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-022",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-023",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-024",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-025",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-026",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-027",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-028",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-029",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-030",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-031",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-032",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-033",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-034",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-035",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-036",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x1180",
+      "confidence": 0.99,
+      "rationale": "The same live heap pointer is passed to free twice on the reachable cleanup path."
+    },
+    {
+      "challenge_id": "FVRE-037",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0xc00",
+      "confidence": 0.99,
+      "rationale": "The cleanup path frees one allocation twice; Valgrind confirms the invalid second free."
+    },
+    {
+      "challenge_id": "FVRE-038",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-039",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-040",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-041",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-042",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-043",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-044",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-045",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-046",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-047",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-048",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-049",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-050",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-051",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-052",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-053",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-787",
+      "cwe_subcategories": [
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x120000820",
+      "confidence": 0.97,
+      "rationale": "The commit index becomes 16 and is used to store into a 16-entry global table, one element beyond its end."
+    },
+    {
+      "challenge_id": "FVRE-054",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-055",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-056",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-057",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-058",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-059",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-060",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-061",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-062",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-063",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-064",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-065",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-066",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-067",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-068",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-069",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-070",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-071",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-072",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-073",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-074",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-075",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-076",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-077",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-078",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x1110",
+      "confidence": 0.96,
+      "rationale": "A reachable concentration calculation uses a zero divisor; the compiler emits an unconditional divide-error trap for this path."
+    },
+    {
+      "challenge_id": "FVRE-079",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-080",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-081",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-082",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-083",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-084",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-085",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-086",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-087",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-088",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-089",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x10b0",
+      "confidence": 0.96,
+      "rationale": "The scratch-slot index reaches the first element past a fixed stack buffer and is used by a store."
+    },
+    {
+      "challenge_id": "FVRE-090",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-091",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-092",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-093",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-094",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-095",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-096",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-097",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-098",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-099",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-100",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-101",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-102",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1110",
+      "confidence": 0.99,
+      "rationale": "A board-initialization loop overwrites the stack canary; every emulated run terminates with stack-smashing detection."
+    },
+    {
+      "challenge_id": "FVRE-103",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-104",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-105",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-106",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-107",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-108",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-109",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-110",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-111",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-112",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-113",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-114",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-115",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-116",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x5d0",
+      "confidence": 0.98,
+      "rationale": "The argument-count-derived loop can write beyond the fixed stack object; a 55-argument run triggers the canary."
+    },
+    {
+      "challenge_id": "FVRE-117",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-118",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-119",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-120",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x720",
+      "confidence": 0.97,
+      "rationale": "The deterministic scratch index is 16 and is used on a 16-element stack array, producing a one-element overflow."
+    },
+    {
+      "challenge_id": "FVRE-121",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-122",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-123",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x10000420",
+      "confidence": 0.97,
+      "rationale": "A reachable lookup failure leaves a pointer null and the following basic block dereferences it without a guard."
+    },
+    {
+      "challenge_id": "FVRE-124",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-125",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-126",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-127",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-128",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-129",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-130",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-131",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-132",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-133",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-134",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-135",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-787",
+      "cwe_subcategories": [
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x680",
+      "confidence": 0.97,
+      "rationale": "A computed commit index equal to the table length is used for a global-array store without an upper-bound check."
+    },
+    {
+      "challenge_id": "FVRE-136",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-137",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-138",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-139",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-140",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-141",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-142",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-143",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-144",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-145",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-146",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x10b0",
+      "confidence": 0.96,
+      "rationale": "The not-found case supplies a null record pointer that is dereferenced on the reachable reporting path."
+    },
+    {
+      "challenge_id": "FVRE-147",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-148",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-149",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-150",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-151",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x1190",
+      "confidence": 0.99,
+      "rationale": "Two reachable cleanup operations call free with the same allocation and do not clear or replace the pointer."
+    },
+    {
+      "challenge_id": "FVRE-152",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-153",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-154",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-155",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-156",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-157",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-158",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-159",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-160",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-161",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-162",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-163",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-164",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-165",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x400690",
+      "confidence": 0.98,
+      "rationale": "The receipt record is freed and its fields are subsequently loaded for printing on the same path."
+    },
+    {
+      "challenge_id": "FVRE-166",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-167",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-168",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-169",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-170",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x38a8",
+      "confidence": 0.99,
+      "rationale": "An out-of-range scratch write corrupts the stack; Valgrind and the stack protector both expose the overwrite."
+    },
+    {
+      "challenge_id": "FVRE-171",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-172",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-173",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-174",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-175",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-176",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-177",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-178",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-179",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-180",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-181",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-182",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-183",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-184",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-185",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-186",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-457",
+      "cwe_subcategories": [
+        "CWE-908",
+        "CWE-200"
+      ],
+      "address": "0x780",
+      "confidence": 0.94,
+      "rationale": "A stack scalar is conditionally initialized but is consumed on a path that skips initialization; Valgrind reports the undefined use."
+    },
+    {
+      "challenge_id": "FVRE-187",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-188",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-189",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-190",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-191",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-192",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-193",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-194",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-195",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-196",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-197",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-198",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-199",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-122",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x5c4",
+      "confidence": 0.98,
+      "rationale": "The program allocates 60 bytes and performs a reachable store at offset 68, beyond the heap object."
+    },
+    {
+      "challenge_id": "FVRE-200",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-201",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-202",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-203",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x6c0",
+      "confidence": 0.99,
+      "rationale": "The missing-track lookup returns null and the caller immediately reads through it; Valgrind confirms the invalid read at address 0x4."
+    },
+    {
+      "challenge_id": "FVRE-204",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-205",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-206",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-207",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-208",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-209",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-210",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-211",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-212",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-213",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-214",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-215",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x100003e0",
+      "confidence": 0.96,
+      "rationale": "An absent descriptor leaves the ext4 metadata pointer null, followed by an unguarded field load."
+    },
+    {
+      "challenge_id": "FVRE-216",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-217",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-218",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-219",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-220",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-221",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x11b0",
+      "confidence": 0.98,
+      "rationale": "A five-iteration loop stores into a four-element local integer array, making the final store out of bounds."
+    },
+    {
+      "challenge_id": "FVRE-222",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-223",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-224",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-457",
+      "cwe_subcategories": [
+        "CWE-908",
+        "CWE-200"
+      ],
+      "address": "0x780",
+      "confidence": 0.94,
+      "rationale": "A reachable reporting path consumes an uninitialized stack value; Valgrind reports a conditional operation on undefined data."
+    },
+    {
+      "challenge_id": "FVRE-225",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-226",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-227",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-228",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-229",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-230",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-231",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-131",
+        "CWE-119"
+      ],
+      "address": "0x530",
+      "confidence": 0.99,
+      "rationale": "The binary requests a 10-byte checked copy into an 8-byte stack destination, which is an explicit size mismatch."
+    },
+    {
+      "challenge_id": "FVRE-232",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-233",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-234",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x400510",
+      "confidence": 0.94,
+      "rationale": "A reachable calculation has a constant zero divisor and the optimized code enters the architecture's divide-error trap."
+    },
+    {
+      "challenge_id": "FVRE-235",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-236",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-237",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-238",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-239",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-240",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-241",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-242",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-243",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-244",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-245",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-246",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-247",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-248",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-249",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-250",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-251",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-252",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-253",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-254",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-255",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-256",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-257",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-258",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-259",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-260",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-261",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-262",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-263",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-264",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-265",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-266",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-267",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-268",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-269",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-270",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-271",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-272",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-273",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-274",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-275",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-276",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-277",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-278",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x100003a0",
+      "confidence": 0.97,
+      "rationale": "The computed scratch index reaches the stack array length and is used for an unchecked store."
+    },
+    {
+      "challenge_id": "FVRE-279",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-280",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-281",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-282",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-283",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x1090",
+      "confidence": 0.96,
+      "rationale": "The reachable arithmetic path divides by zero and has been lowered to an unconditional trap."
+    },
+    {
+      "challenge_id": "FVRE-284",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-285",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-286",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-287",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-288",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-289",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-290",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-291",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-125",
+      "cwe_subcategories": [
+        "CWE-457",
+        "CWE-200",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1000005e8",
+      "confidence": 0.97,
+      "rationale": "An unchecked stack-table index reads beyond the initialized entries and passes the resulting stack data to output."
+    },
+    {
+      "challenge_id": "FVRE-292",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-122",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0xaa0",
+      "confidence": 0.99,
+      "rationale": "Only 8 bytes are allocated for a ushort array, but later iterations store at offsets 8 and 10; Valgrind confirms both writes."
+    },
+    {
+      "challenge_id": "FVRE-293",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-294",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-295",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-296",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-297",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-298",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-299",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-300",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-301",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-302",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-303",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-304",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-305",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-306",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-307",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-308",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-309",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-310",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-311",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-312",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-313",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-314",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-315",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-316",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-317",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-318",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-319",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-320",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-321",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-322",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-323",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-324",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-325",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-326",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-327",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-328",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x560",
+      "confidence": 0.96,
+      "rationale": "A reachable denominator is zero and the subsequent integer division has no zero guard."
+    },
+    {
+      "challenge_id": "FVRE-329",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-330",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x400580",
+      "confidence": 0.97,
+      "rationale": "A failed lookup produces a null pointer that is unconditionally dereferenced in main."
+    },
+    {
+      "challenge_id": "FVRE-331",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-332",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-333",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-334",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-335",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-336",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x11e0",
+      "confidence": 0.98,
+      "rationale": "The program frees a heap record and then reloads fields from that same record on the continuing path."
+    },
+    {
+      "challenge_id": "FVRE-337",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-338",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-339",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-340",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-341",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-342",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-343",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-344",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-345",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-346",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-347",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-348",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-349",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-350",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-351",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-352",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-353",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-354",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-355",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-356",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-476",
+      "cwe_subcategories": [],
+      "address": "0x1160",
+      "confidence": 0.97,
+      "rationale": "The not-found branch leaves the selected object null and a later field access lacks a null test."
+    },
+    {
+      "challenge_id": "FVRE-357",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-358",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-359",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-360",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-361",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-362",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-363",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-364",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-365",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-366",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-367",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-368",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-369",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-370",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-371",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-125",
+      "cwe_subcategories": [
+        "CWE-200",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x8a0",
+      "confidence": 0.99,
+      "rationale": "An out-of-bounds stack read is formatted as output and reaches the adjacent stack-canary value, creating an information disclosure."
+    },
+    {
+      "challenge_id": "FVRE-372",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-373",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-374",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-125",
+      "cwe_subcategories": [
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x100000748",
+      "confidence": 0.97,
+      "rationale": "A runtime token yields an index beyond the table and the Mach-O code performs the indexed load without a bounds check."
+    },
+    {
+      "challenge_id": "FVRE-375",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-376",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-377",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-378",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x770",
+      "confidence": 0.98,
+      "rationale": "Linked-list cleanup frees the current node and then loads current->next from the freed node to continue traversal."
+    },
+    {
+      "challenge_id": "FVRE-379",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-380",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-381",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-382",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-383",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-384",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-385",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-386",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-387",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-388",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-389",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-390",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-391",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-392",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-393",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-125",
+      "cwe_subcategories": [
+        "CWE-200",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x5c0",
+      "confidence": 0.99,
+      "rationale": "The Thumb code prints a value loaded beyond the stack array, and runtime output exposes the adjacent stack canary."
+    },
+    {
+      "challenge_id": "FVRE-394",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-395",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-396",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-397",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-398",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-399",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-400",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-401",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-402",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-403",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-404",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-405",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-406",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-407",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x1140",
+      "confidence": 0.97,
+      "rationale": "The selected fixed input makes the divisor zero and execution reaches an unguarded integer division."
+    },
+    {
+      "challenge_id": "FVRE-408",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-409",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-410",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-411",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-412",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-413",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-414",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-415",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-416",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-417",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-418",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-419",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x10f0",
+      "confidence": 0.98,
+      "rationale": "The grid traversal has an inclusive upper bound, causing its final iteration to store one element past the local grid."
+    },
+    {
+      "challenge_id": "FVRE-420",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-421",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-457",
+      "cwe_subcategories": [
+        "CWE-476",
+        "CWE-822"
+      ],
+      "address": "0x498",
+      "confidence": 0.98,
+      "rationale": "A 12-byte heap record is allocated without initialization and the pointer field at offset 8 is dereferenced before assignment."
+    },
+    {
+      "challenge_id": "FVRE-422",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-423",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-424",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-425",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-426",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-427",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-428",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-429",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-430",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-431",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-432",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-433",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x528",
+      "confidence": 0.99,
+      "rationale": "The reachable error cleanup calls free twice on the same pointer; emulation terminates on the duplicate free."
+    },
+    {
+      "challenge_id": "FVRE-434",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-435",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x4006e0",
+      "confidence": 0.98,
+      "rationale": "An expired session record is freed and then its third field is read while processing the same session."
+    },
+    {
+      "challenge_id": "FVRE-436",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-437",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-438",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-439",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-440",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-441",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-442",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-443",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-444",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x528",
+      "confidence": 0.99,
+      "rationale": "The Thumb main routine reaches two frees of the same allocation; dynamic execution aborts on the second free."
+    },
+    {
+      "challenge_id": "FVRE-445",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-446",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-447",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-448",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-449",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-450",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-451",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-452",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-457",
+      "cwe_subcategories": [
+        "CWE-476",
+        "CWE-822"
+      ],
+      "address": "0x498",
+      "confidence": 0.98,
+      "rationale": "The code dereferences the uninitialized pointer member at offset 8 of a newly allocated 12-byte structure."
+    },
+    {
+      "challenge_id": "FVRE-453",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-454",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-455",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x1200007e0",
+      "confidence": 0.94,
+      "rationale": "The fixed data selects a zero denominator and the optimized main path reaches a divide-by-zero trap."
+    },
+    {
+      "challenge_id": "FVRE-456",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-457",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-458",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-459",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-460",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-461",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-462",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-463",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-464",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-465",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-466",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-467",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-468",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-469",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-470",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-471",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x12c0",
+      "confidence": 0.99,
+      "rationale": "A cleanup helper is invoked twice with ownership of the same allocation and performs a second free."
+    },
+    {
+      "challenge_id": "FVRE-472",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-473",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-474",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x10000380",
+      "confidence": 0.97,
+      "rationale": "The PowerPC routine performs integer division with a reachable zero divisor and no preceding check."
+    },
+    {
+      "challenge_id": "FVRE-475",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-476",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-477",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-478",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-479",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-480",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-481",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-482",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-483",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-484",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-485",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-486",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-487",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-488",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-489",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-490",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-491",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-492",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-493",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-494",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-495",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-457",
+      "cwe_subcategories": [
+        "CWE-476",
+        "CWE-822"
+      ],
+      "address": "0x100003a0",
+      "confidence": 0.98,
+      "rationale": "A pointer field in freshly allocated heap storage is read and dereferenced before the field is initialized."
+    },
+    {
+      "challenge_id": "FVRE-496",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-497",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-498",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-499",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-500",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-501",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-502",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-503",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-504",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x1180",
+      "confidence": 0.99,
+      "rationale": "Both reachable cleanup calls pass the same heap pointer to free, confirmed by the runtime duplicate-free failure."
+    },
+    {
+      "challenge_id": "FVRE-505",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-506",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-507",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-508",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-509",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-510",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-511",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-512",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-513",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-514",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-515",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-516",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-517",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-518",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-519",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-520",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-521",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-522",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-523",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-524",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-525",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-526",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-527",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-528",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-529",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-530",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-531",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-532",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-533",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-534",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-535",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-536",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-122",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-131",
+        "CWE-119"
+      ],
+      "address": "0x10000480",
+      "confidence": 0.98,
+      "rationale": "The allocation size is strlen(input), but the terminating null is stored at offset strlen, one byte past the heap object."
+    },
+    {
+      "challenge_id": "FVRE-537",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-538",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-539",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-540",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-541",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-542",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-543",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-544",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-545",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-546",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-547",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-548",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-549",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-550",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-551",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-552",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-553",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x100000e94",
+      "confidence": 0.98,
+      "rationale": "A 16-iteration initialization loop writes into an eight-element stack array, overflowing eight elements."
+    },
+    {
+      "challenge_id": "FVRE-554",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-555",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-556",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-557",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-558",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-559",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-560",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-561",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-562",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-563",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-564",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-565",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-566",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-567",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-568",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-569",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-570",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-571",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-572",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-573",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-574",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-575",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-576",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-577",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-578",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x10000440",
+      "confidence": 0.98,
+      "rationale": "The heap object is released before a later reachable block reads its fields for processing."
+    },
+    {
+      "challenge_id": "FVRE-579",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-580",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-581",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-582",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-583",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x4006f0",
+      "confidence": 0.99,
+      "rationale": "The fixed payload produces a nonzero CRC and enters a mismatch branch that frees the same buffer twice."
+    },
+    {
+      "challenge_id": "FVRE-584",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-585",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-586",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-587",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-125",
+      "cwe_subcategories": [
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1170",
+      "confidence": 0.98,
+      "rationale": "The runtime token evaluates to index 16 for a 16-entry global table and the code performs the out-of-bounds indexed read."
+    },
+    {
+      "challenge_id": "FVRE-588",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-589",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-590",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x514",
+      "confidence": 0.99,
+      "rationale": "The selected cleanup path calls free twice on the same allocation and dynamically aborts on the second call."
+    },
+    {
+      "challenge_id": "FVRE-591",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-592",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-593",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x400650",
+      "confidence": 0.99,
+      "rationale": "A string is freed, then re-read by a validator and also passed to printf as a string on the reachable path."
+    },
+    {
+      "challenge_id": "FVRE-594",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-595",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-596",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-597",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-598",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-599",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-600",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-601",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-602",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1110",
+      "confidence": 0.99,
+      "rationale": "This binary is byte-identical to FVRE-102; its board loop corrupts the canary and every emulated run reports stack smashing."
+    },
+    {
+      "challenge_id": "FVRE-603",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-604",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-605",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-606",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-607",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-608",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x400600",
+      "confidence": 0.99,
+      "rationale": "The fixed APDU's second segment has an invalid window value, taking a rejection path that frees its buffer twice."
+    },
+    {
+      "challenge_id": "FVRE-609",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-610",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-611",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-612",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-613",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-614",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x10d0",
+      "confidence": 0.98,
+      "rationale": "The i386 routine can perform 63 byte stores into a smaller fixed local buffer without enforcing its capacity."
+    },
+    {
+      "challenge_id": "FVRE-615",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-616",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-617",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-618",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-619",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-620",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-621",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-622",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-623",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-624",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-625",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-626",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-627",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-628",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-629",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-630",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-631",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-632",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-633",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x980",
+      "confidence": 0.99,
+      "rationale": "A freed allocation is read again on the continuing path; Valgrind confirms the invalid post-free access."
+    },
+    {
+      "challenge_id": "FVRE-634",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-635",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-636",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-637",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-638",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-639",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-640",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1190",
+      "confidence": 0.98,
+      "rationale": "A loop writes 16 entries into an eight-entry local array, so its latter half overwrites adjacent stack storage."
+    },
+    {
+      "challenge_id": "FVRE-641",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-642",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-643",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x100004c0",
+      "confidence": 0.98,
+      "rationale": "The PowerPC control flow frees a record and later dereferences the same record without reallocation."
+    },
+    {
+      "challenge_id": "FVRE-644",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-645",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-646",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-647",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-648",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-649",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-650",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x400550",
+      "confidence": 0.97,
+      "rationale": "The fixed calculation makes the denominator zero and reaches an unguarded division instruction."
+    },
+    {
+      "challenge_id": "FVRE-651",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-652",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-653",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-654",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x900",
+      "confidence": 0.97,
+      "rationale": "The CRCX input path releases its buffer and subsequently reads from the stale pointer during validation."
+    },
+    {
+      "challenge_id": "FVRE-655",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-656",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-657",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-658",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-659",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-660",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-787",
+      "cwe_subcategories": [
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x1140",
+      "confidence": 0.98,
+      "rationale": "The computed commit slot equals the 16-entry global table length and is used by a real indexed store."
+    },
+    {
+      "challenge_id": "FVRE-661",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-662",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-369",
+      "cwe_subcategories": [],
+      "address": "0x10000380",
+      "confidence": 0.97,
+      "rationale": "A reachable PowerPC arithmetic path executes integer division with a zero denominator."
+    },
+    {
+      "challenge_id": "FVRE-663",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-664",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-665",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-666",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-667",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-668",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-669",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-670",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-671",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-672",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-673",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-674",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-121",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x100000f34",
+      "confidence": 0.98,
+      "rationale": "The Mach-O routine initializes 16 entries through a local array that reserves space for only eight."
+    },
+    {
+      "challenge_id": "FVRE-675",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-416",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x120000920",
+      "confidence": 0.99,
+      "rationale": "The list traversal frees each current node and then reads its next link from the freed allocation; another branch also mutates freed data."
+    },
+    {
+      "challenge_id": "FVRE-676",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-677",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-678",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-679",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-680",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-681",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-682",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-683",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-684",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-685",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-686",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-687",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-688",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-689",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-690",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-691",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x100004a0",
+      "confidence": 0.99,
+      "rationale": "The same allocation reaches two free calls along the selected PowerPC cleanup path."
+    },
+    {
+      "challenge_id": "FVRE-692",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-693",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-415",
+      "cwe_subcategories": [
+        "CWE-672"
+      ],
+      "address": "0x10000440",
+      "confidence": 0.98,
+      "rationale": "An initial digit of 8 or 9 triggers an early free, after which common cleanup frees the unchanged pointer again."
+    },
+    {
+      "challenge_id": "FVRE-694",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-695",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-696",
+      "is_vulnerable": true,
+      "main_cwe": "CWE-122",
+      "cwe_subcategories": [
+        "CWE-787",
+        "CWE-129",
+        "CWE-119"
+      ],
+      "address": "0x10000460",
+      "confidence": 0.98,
+      "rationale": "The routine allocates 8 bytes but performs byte stores at offsets 8 and 9, both beyond the heap allocation."
+    },
+    {
+      "challenge_id": "FVRE-697",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-698",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-699",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    },
+    {
+      "challenge_id": "FVRE-700",
+      "is_vulnerable": false,
+      "main_cwe": "N/A",
+      "cwe_subcategories": [],
+      "address": null,
+      "confidence": 0.8,
+      "rationale": "No reachable defect found."
+    }
+  ]
+}
